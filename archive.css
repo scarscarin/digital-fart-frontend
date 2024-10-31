@@ -1,6 +1,9 @@
+/* archive.css */
+
 body {
     font-family: Arial, sans-serif;
     margin: 20px;
+    background-color: #f9f9f9;
 }
 
 h1 {
@@ -12,6 +15,17 @@ h1 {
     margin: 0 auto 20px;
     padding: 10px 20px;
     font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    background-color: #4CAF50; /* Green background */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+#back-button:hover {
+    background-color: #45a049; /* Darker green on hover */
 }
 
 #audio-grid {
@@ -23,7 +37,7 @@ h1 {
 .audio-rectangle {
     position: relative;
     height: 50px;
-    background-color: #f0f0f0;
+    background-color: #e0e0e0;
     cursor: pointer;
     overflow: hidden;
     border: 1px solid #ccc;
@@ -40,6 +54,7 @@ h1 {
     color: #333;
     text-align: center;
     z-index: 1;
+    user-select: none;
 }
 
 .audio-rectangle .progress-overlay {
@@ -55,7 +70,7 @@ h1 {
 
 @media (hover: hover) {
     .audio-rectangle:hover {
-        background-color: #e0e0e0;
+        background-color: #d0d0d0;
     }
 }
 

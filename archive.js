@@ -41,8 +41,12 @@ document.addEventListener('DOMContentLoaded', () => {
             const audio = new Audio(entry.link);
             audioElements.push(audio);
 
-            // Add click event listener
+            // Add click and touch event listeners
             rectangle.addEventListener('click', () => {
+                playAudio(index);
+            });
+
+            rectangle.addEventListener('touchstart', () => {
                 playAudio(index);
             });
 
@@ -55,6 +59,12 @@ document.addEventListener('DOMContentLoaded', () => {
             // Reset overlay when playback ends
             audio.addEventListener('ended', () => {
                 progressOverlay.style.width = '0%';
+            });
+
+            // Handle audio errors
+            audio.addEventListener('error', (e) => {
+                alert('Audio failed to play. Please try again later.');
+                console.error('Audio error:', e);
             });
         });
     }
@@ -73,9 +83,20 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
 
+        const currentAudio = audioElements[index];
+
+        // If the audio is already playing, pause it
+        if (!currentAudio.paused) {
+            currentAudio.pause();
+            currentAudio.currentTime = 0;
+            const rectangle = document.querySelector(`.audio-rectangle[data-index='${index}']`);
+            const overlay = rectangle.querySelector('.progress-overlay');
+            overlay.style.width = '0%';
+            return;
+        }
+
         // Play selected audio
-        const audio = audioElements[index];
-        audio.play();
+        currentAudio.play();
     }
 
     // Back button functionality
