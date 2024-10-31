@@ -110,11 +110,11 @@ async function fetchArchive() {
             const option = document.createElement("option");
             option.value = entry.link;
 
-            // Use the name from the backend
+            // Use the display name from the backend
             option.textContent = entry.name;
             archiveSelect.appendChild(option);
         });
-        
+
     } catch (error) {
         console.error("Error fetching archive:", error);
         statusText.textContent = "Failed to load archive.";
