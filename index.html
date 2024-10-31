@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Fart</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Optionally set the base URL if needed -->
+    <!-- <base href="/digitalfart/"> -->
+</head>
+<body>
+    <h1>Digital Fart - Record Your Sound</h1>
+    
+    <!-- Recording and Upload Section -->
+    <div id="recording-section">
+        <button id="recordBtn">Start Recording</button>
+        <button id="stopBtn" disabled>Stop Recording</button>
+        <p id="status">Press "Start Recording" to begin.</p>
+        <audio id="playback" controls></audio>
+    </div>
+    
+    <!-- Archived Recordings Section -->
+    <div id="archive-section">
+        <h2>Archived Recordings</h2>
+        <ul id="archiveList">
+            <!-- Archived recordings will be populated here -->
+        </ul>
+    </div>
+
+    <!-- Script to handle recording, uploading, and fetching archive -->
+    <script src="app.js"></script>
+</body>
+</html>

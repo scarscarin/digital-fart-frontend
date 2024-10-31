@@ -1,0 +1,25 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    padding: 20px;
+}
+
+button {
+    margin: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+}
+
+#status {
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+#archiveList {
+    list-style-type: none;
+    padding: 0;
+}
+
+#archiveList li {
+    margin: 5px 0;
+}
