@@ -18,7 +18,7 @@ h1 {
     font-weight: bold;
     cursor: pointer;
     background-color: #4CAF50; /* Green background */
-    color: white;
+    color: white; /* White text */
     border: none;
     border-radius: 5px;
     transition: background-color 0.3s;

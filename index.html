@@ -4,31 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Digital Fart</title>
+    <script src="https://cdn.webrtc-experiment.com/RecordRTC.js"></script>
     <link rel="stylesheet" href="styles.css">
-    <!-- Optionally set the base URL if needed -->
-    <!-- <base href="/digitalfart/"> -->
 </head>
 <body>
-    <h1>Digital Fart - Record Your Sound - did this work?</h1>
-    
-    <!-- Recording and Upload Section -->
-    <div id="recording-section">
+    <h1>💨 Digital Fart App</h1>
+    <div style="text-align: center; margin-top: 20px;">
         <button id="recordBtn">Start Recording</button>
         <button id="stopBtn" disabled>Stop Recording</button>
-        <p id="status">Press "Start Recording" to begin.</p>
+        <br><br>
         <audio id="playback" controls></audio>
-    </div>
-    
-    <div style="text-align: center;">
+        <br><br>
+        <select id="archiveSelect">
+            <option value="">Select an audio</option>
+        </select>
+        <audio id="archivePlayer" controls></audio>
+        <p id="status"></p>
+        <br>
         <button id="archive-button">📚 View Archive</button>
     </div>
+    
 
-    <script>
-        document.getElementById('archive-button').addEventListener('click', () => {
-            window.location.href = 'archive.html'; // Adjust the path if necessary
-        });
-    </script>
-    <!-- Script to handle recording, uploading, and fetching archive -->
     <script src="app.js"></script>
 </body>
 </html>
