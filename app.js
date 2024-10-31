@@ -109,7 +109,10 @@ async function fetchArchive() {
         data.entries.forEach((entry) => {
             const option = document.createElement("option");
             option.value = entry.link;
-            option.textContent = entry.name;
+
+            // Remove file extension for display
+            const displayName = entry.name.replace('.wav', '');
+            option.textContent = displayName;
             archiveSelect.appendChild(option);
         });
     } catch (error) {
