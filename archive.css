@@ -30,13 +30,34 @@ h1 {
 
 #audio-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     grid-gap: 10px;
+    /* Default grid for small screens (portrait mobile) */
+    grid-template-columns: repeat(2, 1fr);
+}
+
+/* Adjust grid for medium screens (landscape mobile/tablet) */
+@media (min-width: 600px) {
+    #audio-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+/* Adjust grid for large screens */
+@media (min-width: 900px) {
+    #audio-grid {
+        grid-template-columns: repeat(6, 1fr);
+    }
+}
+
+@media (min-width: 1200px) {
+    #audio-grid {
+        grid-template-columns: repeat(8, 1fr);
+    }
 }
 
 .audio-rectangle {
     position: relative;
-    height: 100px; /* Increased height */
+    height: 140px; /* Increased height */
     background-color: #e0e0e0;
     cursor: pointer;
     overflow: hidden;
@@ -51,7 +72,7 @@ h1 {
     left: 50%;
     transform: translate(-50%, -50%);
     font-weight: bold;
-    font-size: 20px; /* Increased font size */
+    font-size: 24px; /* Increased font size */
     color: #333;
     text-align: center;
     z-index: 1;
@@ -75,8 +96,7 @@ h1 {
     }
 }
 
-@media (max-width: 500px) {
-    .audio-rectangle {
-        height: 140px; /* Increased height for mobile */
-    }
+/* Allow scrolling if content overflows */
+body {
+    overflow-y: auto;
 }
