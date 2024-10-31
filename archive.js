@@ -46,10 +46,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 playAudio(index);
             });
 
-            rectangle.addEventListener('touchstart', () => {
-                playAudio(index);
-            });
-
             // Update progress overlay during playback
             audio.addEventListener('timeupdate', () => {
                 const progress = (audio.currentTime / audio.duration) * 100;
