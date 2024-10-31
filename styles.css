@@ -35,3 +35,20 @@ button {
     width: 100%;
     max-width: 600px;
 }
+
+#archive-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    background-color: #4CAF50; /* Green background */
+    color: white; /* White text */
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    margin-top: 20px; /* Add some space above the button */
+}
+
+#archive-button:hover {
+    background-color: #45a049; /* Darker green on hover */
+}

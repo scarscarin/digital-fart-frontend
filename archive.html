@@ -2,60 +2,14 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Archived Recordings</title>
-    <link rel="stylesheet" href="styles.css">
-    <!-- Optionally set the base URL if needed -->
-    <!-- <base href="/digitalfart/"> -->
+    <title>Audio Archive</title>
+    <link rel="stylesheet" href="archive.css">
 </head>
 <body>
-    <h1>Archived Recordings</h1>
-    
-    <!-- Archived Recordings Section -->
-    <div id="archive-section">
-        <ul id="archiveList">
-            <!-- Archived recordings will be populated here -->
-        </ul>
-    </div>
+    <h1>Audio Archive</h1>
+    <button id="back-button">Back to Home</button>
+    <div id="audio-grid"></div>
 
-    <!-- JavaScript to Fetch and Display Archive -->
-    <script>
-        async function fetchArchive() {
-            try {
-                const response = await fetch("https://api.leoscarin.com/archive"); // Updated URL
-
-                if (!response.ok) {
-                    throw new Error("Failed to fetch archive");
-                }
-
-                const data = await response.json();
-
-                const archiveList = document.getElementById("archiveList");
-                archiveList.innerHTML = ""; // Clear any existing items
-
-                // Display each archived recording as a list item with a play link
-                data.entries.forEach((entry) => {
-                    const listItem = document.createElement("li");
-                    listItem.textContent = entry.name + " ";
-
-                    const audioLink = document.createElement("a");
-                    audioLink.href = entry.link;
-                    audioLink.textContent = "Play";
-                    audioLink.target = "_blank"; // Opens in a new tab
-
-                    listItem.appendChild(audioLink);
-                    archiveList.appendChild(listItem);
-                });
-            } catch (error) {
-                console.error("Error fetching archive:", error);
-                // Display error message to the user
-                const archiveSection = document.getElementById("archive-section");
-                archiveSection.innerHTML = "<p>Failed to load archive.</p>";
-            }
-        }
-
-        // Call fetchArchive when the page loads
-        window.onload = fetchArchive;
-    </script>
+    <script src="archive.js"></script>
 </body>
 </html>

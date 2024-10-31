@@ -19,17 +19,15 @@
         <audio id="playback" controls></audio>
     </div>
     
-    <!-- Archived Recordings Section -->
-    <div id="archive-section">
-        <h2>Archived Recordings</h2>
-        <!-- Dropdown menu -->
-        <select id="archiveSelect">
-            <!-- Options will be populated here -->
-        </select>
-        <!-- Embedded audio player -->
-        <audio id="archivePlayer" controls></audio>
+    <div style="text-align: center;">
+        <button id="archive-button">📚 View Archive</button>
     </div>
 
+    <script>
+        document.getElementById('archive-button').addEventListener('click', () => {
+            window.location.href = 'archive.html'; // Adjust the path if necessary
+        });
+    </script>
     <!-- Script to handle recording, uploading, and fetching archive -->
     <script src="app.js"></script>
 </body>
