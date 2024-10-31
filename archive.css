@@ -78,25 +78,25 @@ h1 {
 }
 
 /* Adjust grid for larger screens (4 columns) */
-@media (min-width: 800px) {
+/* @media (min-width: 800px) {
     #audio-grid {
         grid-template-columns: repeat(4, 1fr);
     }
-}
+} */
 
 /* Adjust grid for larger screens (6 columns) */
-@media (min-width: 1100px) {
+/* @media (min-width: 1100px) {
     #audio-grid {
         grid-template-columns: repeat(6, 1fr);
     }
-}
+} */
 
 /* Adjust grid for extra large screens (8 columns) */
-@media (min-width: 1400px) {
+/* @media (min-width: 1400px) {
     #audio-grid {
         grid-template-columns: repeat(8, 1fr);
     }
-}
+} */
 
 /* Allow scrolling if content overflows */
 body {
