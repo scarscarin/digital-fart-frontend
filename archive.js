@@ -41,12 +41,8 @@ document.addEventListener('DOMContentLoaded', () => {
             const audio = new Audio(entry.link);
             audioElements.push(audio);
 
-            // Add click and touch event listeners
+            // Add click event listener
             rectangle.addEventListener('click', () => {
-                playAudio(index);
-            });
-
-            rectangle.addEventListener('touchstart', () => {
                 playAudio(index);
             });
 
@@ -96,7 +92,11 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         // Play selected audio
-        currentAudio.play();
+        currentAudio.play().catch((error) => {
+            // Handle play errors (e.g., user hasn't interacted with the page yet)
+            console.error('Playback error:', error);
+            alert('Unable to play audio. Please tap the screen to interact and try again.');
+        });
     }
 
     // Back button functionality
