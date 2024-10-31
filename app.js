@@ -109,12 +109,12 @@ async function fetchArchive() {
         data.entries.forEach((entry) => {
             const option = document.createElement("option");
             option.value = entry.link;
-        
-            // Prepend the emoji to the display name
-            const displayName = `💨 ${entry.name.replace('.wav', '')}`;
-            option.textContent = displayName;
+
+            // Use the name from the backend
+            option.textContent = entry.name;
             archiveSelect.appendChild(option);
         });
+        
     } catch (error) {
         console.error("Error fetching archive:", error);
         statusText.textContent = "Failed to load archive.";
