@@ -109,9 +109,9 @@ async function fetchArchive() {
         data.entries.forEach((entry) => {
             const option = document.createElement("option");
             option.value = entry.link;
-
-            // Remove file extension for display
-            const displayName = entry.name.replace('.wav', '');
+        
+            // Prepend the emoji to the display name
+            const displayName = `💨 ${entry.name.replace('.wav', '')}`;
             option.textContent = displayName;
             archiveSelect.appendChild(option);
         });
