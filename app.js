@@ -1,10 +1,7 @@
-// Get HTML elements
-const playback = document.getElementById("playback");
 const recordButton = document.getElementById("recordBtn");
-const stopButton = document.getElementById("stopBtn");
 const statusText = document.getElementById("status");
-const archiveSelect = document.getElementById("archiveSelect");
-const archivePlayer = document.getElementById("archivePlayer");
+const archiveButton = document.getElementById('archive-button');
+
 let recorder;
 let stream;
 
@@ -27,8 +24,8 @@ recordButton.addEventListener("click", async () => {
         recorder.startRecording();
 
         statusText.textContent = "Recording...";
+
         recordButton.disabled = true;
-        stopButton.disabled = false;
 
         // Automatically stop recording after 5 seconds
         setTimeout(() => {
@@ -43,22 +40,9 @@ recordButton.addEventListener("click", async () => {
     }
 });
 
-// Stop recording manually
-stopButton.addEventListener("click", () => {
-    if (recorder && recorder.getState() === "recording") {
-        stopRecording();
-    }
-});
-
 function stopRecording() {
     recorder.stopRecording(async () => {
         const blob = recorder.getBlob();
-
-        // Set playback source to the recorded audio for preview
-        if (playback) {
-            playback.src = URL.createObjectURL(blob);
-            playback.play();
-        }
 
         // Upload audio to the backend
         try {
@@ -77,8 +61,6 @@ function stopRecording() {
             const result = await response.json();
             statusText.textContent = result.message || "Upload complete";
 
-            // Refresh the archive list after successful upload
-            fetchArchive();
         } catch (error) {
             statusText.textContent = "Failed to upload audio. Please try again.";
             console.error("Error uploading audio:", error);
@@ -93,60 +75,12 @@ function stopRecording() {
         }
 
         recordButton.disabled = false;
-        stopButton.disabled = true;
+
+        statusText.textContent = "Recording stopped and uploaded.";
     });
-
-    statusText.textContent = "Stopped recording";
 }
 
-// Archive Fetching Section
-async function fetchArchive() {
-    try {
-        const response = await fetch("https://api.leoscarin.com/archive");
-
-        if (!response.ok) {
-            throw new Error("Failed to fetch archive");
-        }
-
-        const data = await response.json();
-        archiveSelect.innerHTML = "";
-
-        // Create a default option
-        const defaultOption = document.createElement("option");
-        defaultOption.textContent = "Select an audio";
-        defaultOption.value = "";
-        archiveSelect.appendChild(defaultOption);
-
-        // Populate the select options
-        data.entries.forEach((entry) => {
-            const option = document.createElement("option");
-            option.value = entry.link;
-
-            // Use the display name from the backend
-            option.textContent = entry.name;
-            archiveSelect.appendChild(option);
-        });
-
-    } catch (error) {
-        console.error("Error fetching archive:", error);
-        statusText.textContent = "Failed to load archive.";
-    }
-}
-
-// Event listener for archive selection
-archiveSelect.addEventListener("change", function() {
-    const selectedLink = this.value;
-
-    if (selectedLink) {
-        archivePlayer.src = selectedLink;
-        archivePlayer.play();
-    } else {
-        archivePlayer.pause();
-        archivePlayer.src = "";
-    }
+// Archive button functionality
+archiveButton.addEventListener('click', () => {
+    window.location.href = 'archive.html'; // Adjust the path if necessary
 });
-
-// Call fetchArchive when the page loads
-window.onload = function() {
-    fetchArchive();
-};

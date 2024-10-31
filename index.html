@@ -11,19 +11,16 @@
     <h1>💨 Digital Fart App</h1>
     <div style="text-align: center; margin-top: 20px;">
         <button id="recordBtn">Start Recording</button>
-        <button id="stopBtn" disabled>Stop Recording</button>
-        <br><br>
-        <audio id="playback" controls></audio>
-        <br><br>
-        <select id="archiveSelect">
-            <option value="">Select an audio</option>
-        </select>
-        <audio id="archivePlayer" controls></audio>
         <p id="status"></p>
         <br>
         <button id="archive-button">📚 View Archive</button>
     </div>
     
+    <script>
+        document.getElementById('archive-button').addEventListener('click', () => {
+            window.location.href = 'archive.html';
+        });
+    </script>
 
     <script src="app.js"></script>
 </body>
