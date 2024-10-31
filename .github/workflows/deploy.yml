@@ -11,14 +11,14 @@ jobs:
 
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
 
     - name: Upload files via FTP
-      uses: SamKirkland/FTP-Deploy-Action@4.1.0
+      uses: SamKirkland/FTP-Deploy-Action@4.3.5
       with:
         server: ftp://212.107.17.230
         username: ${{ secrets.FTP_USERNAME }}
         password: ${{ secrets.FTP_PASSWORD }}
         port: 21
-        local-dir: .
+        local-dir: ./
         server-dir: /ublic_html/digitalfart
