@@ -16,8 +16,9 @@ jobs:
     - name: Upload files via FTP
       uses: SamKirkland/FTP-Deploy-Action@4.1.0
       with:
-        ftp-server: ftp://212.107.17.230
-        ftp-username: ${{ secrets.FTP_USERNAME }}
-        ftp-password: ${{ secrets.FTP_PASSWORD }}
+        server: ftp://212.107.17.230
+        username: ${{ secrets.FTP_USERNAME }}
+        password: ${{ secrets.FTP_PASSWORD }}
+        port: 21
         local-dir: .
         server-dir: /ublic_html/digitalfart
