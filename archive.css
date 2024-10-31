@@ -1,5 +1,6 @@
 /* archive.css */
 
+/* Base styles */
 body {
     font-family: Arial, sans-serif;
     margin: 20px;
@@ -35,29 +36,9 @@ h1 {
     grid-template-columns: repeat(2, 1fr);
 }
 
-/* Adjust grid for medium screens (landscape mobile/tablet) */
-@media (min-width: 600px) {
-    #audio-grid {
-        grid-template-columns: repeat(4, 1fr);
-    }
-}
-
-/* Adjust grid for large screens */
-@media (min-width: 900px) {
-    #audio-grid {
-        grid-template-columns: repeat(6, 1fr);
-    }
-}
-
-@media (min-width: 1200px) {
-    #audio-grid {
-        grid-template-columns: repeat(8, 1fr);
-    }
-}
-
 .audio-rectangle {
     position: relative;
-    height: 140px; /* Increased height */
+    height: 160px; /* Increased height */
     background-color: #e0e0e0;
     cursor: pointer;
     overflow: hidden;
@@ -93,6 +74,27 @@ h1 {
 @media (hover: hover) {
     .audio-rectangle:hover {
         background-color: #d0d0d0;
+    }
+}
+
+/* Adjust grid for larger screens (4 columns) */
+@media (min-width: 800px) {
+    #audio-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+/* Adjust grid for larger screens (6 columns) */
+@media (min-width: 1100px) {
+    #audio-grid {
+        grid-template-columns: repeat(6, 1fr);
+    }
+}
+
+/* Adjust grid for extra large screens (8 columns) */
+@media (min-width: 1400px) {
+    #audio-grid {
+        grid-template-columns: repeat(8, 1fr);
     }
 }
 
