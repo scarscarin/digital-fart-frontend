@@ -3,6 +3,8 @@ const playback = document.getElementById("playback");
 const recordButton = document.getElementById("recordBtn");
 const stopButton = document.getElementById("stopBtn");
 const statusText = document.getElementById("status");
+const archiveSelect = document.getElementById("archiveSelect");
+const archivePlayer = document.getElementById("archivePlayer");
 let mediaRecorder;
 let audioChunks = [];
 
@@ -17,7 +19,7 @@ recordButton.addEventListener("click", async () => {
         mediaRecorder.onstop = async () => {
             const audioBlob = new Blob(audioChunks, { type: "audio/wav" });
             const formData = new FormData();
-            formData.append("audio", audioBlob, "audio.wav");
+            formData.append("audio", audioBlob, `audio_${Date.now()}.wav`);
 
             // Set playback source to the recorded audio for preview
             if (playback) {
@@ -84,6 +86,7 @@ stopButton.addEventListener("click", () => {
     }
 });
 
+
 // Archive Fetching Section
 async function fetchArchive() {
     try {
@@ -94,21 +97,20 @@ async function fetchArchive() {
         }
 
         const data = await response.json();
-        const archiveList = document.getElementById("archiveList");
-        archiveList.innerHTML = "";
+        archiveSelect.innerHTML = "";
 
-        // Populate archive list
+        // Create a default option
+        const defaultOption = document.createElement("option");
+        defaultOption.textContent = "Select an audio";
+        defaultOption.value = "";
+        archiveSelect.appendChild(defaultOption);
+
+        // Populate the select options
         data.entries.forEach((entry) => {
-            const listItem = document.createElement("li");
-            listItem.textContent = entry.name + " ";
-
-            const audioLink = document.createElement("a");
-            audioLink.href = entry.link;
-            audioLink.textContent = "Play";
-            audioLink.target = "_blank";
-
-            listItem.appendChild(audioLink);
-            archiveList.appendChild(listItem);
+            const option = document.createElement("option");
+            option.value = entry.link;
+            option.textContent = entry.name;
+            archiveSelect.appendChild(option);
         });
     } catch (error) {
         console.error("Error fetching archive:", error);
@@ -116,5 +118,20 @@ async function fetchArchive() {
     }
 }
 
+// Event listener for archive selection
+archiveSelect.addEventListener("change", function() {
+    const selectedLink = this.value;
+
+    if (selectedLink) {
+        archivePlayer.src = selectedLink;
+        archivePlayer.play();
+    } else {
+        archivePlayer.pause();
+        archivePlayer.src = "";
+    }
+});
+
 // Call fetchArchive when the page loads
-window.onload = fetchArchive;
+window.onload = function() {
+    fetchArchive();
+};

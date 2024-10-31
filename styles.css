@@ -23,3 +23,15 @@ button {
 #archiveList li {
     margin: 5px 0;
 }
+
+#archiveSelect {
+    margin: 10px 0;
+    padding: 5px;
+    font-size: 16px;
+}
+
+#archivePlayer {
+    margin-top: 10px;
+    width: 100%;
+    max-width: 600px;
+}
