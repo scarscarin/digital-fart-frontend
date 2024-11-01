@@ -41,7 +41,7 @@ button {
     font-size: 16px;
     font-weight: bold;
     cursor: pointer;
-    background-color: #4CAF50; /* Green background */
+    background-color: #A28578 ; /* Green background */
     color: white; /* White text */
     border: none;
     border-radius: 5px;
@@ -50,7 +50,7 @@ button {
 }
 
 #archive-button:hover {
-    background-color: #45a049; /* Darker green on hover */
+    background-color: #EDCBBD; /* Darker green on hover */
 }
 
 .static-frame, .animated-gif {
