@@ -52,7 +52,7 @@
 
             // Hide the static image and show the video
             staticFrame.style.display = 'none';
-            animatedGif.style.display = 'block';
+            animatedGif.style.display = 'inline-block';
 
             // Reset the video to the beginning and play it
             video.currentTime = 0;
@@ -61,7 +61,7 @@
             // When the video ends, hide the video and show the static image
             video.onended = () => {
                 animatedGif.style.display = 'none';
-                staticFrame.style.display = 'block';
+                staticFrame.style.display = 'inline-block';
             };
         }
     </script>
