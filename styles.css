@@ -52,3 +52,7 @@ button {
 #archive-button:hover {
     background-color: #45a049; /* Darker green on hover */
 }
+
+.static-frame, .animated-gif {
+    width: auto; /* Adjust the size as needed */
+}

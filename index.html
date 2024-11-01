@@ -7,22 +7,35 @@
     <script src="https://cdn.webrtc-experiment.com/RecordRTC.js"></script>
     <link rel="stylesheet" href="styles.css">
 </head>
-<body>
+<body style="background-color:rgb(0, 0, 0); color: white">
     <h1>💨 Digital Fart App</h1>
     <div style="text-align: center; margin-top: 20px;">
-        <img src="images/butt.gif">
-        <button id="recordBtn">Start Recording</button>
+        <img style="width:auto;height:auto" src="images/butt.png" id="recImg" class="static-frame" onclick="playGif()">
+        <img style="width: auto; height:auto; display:none" src="images/butt.gif" class="animated-gif">
+        <br>
+        <!-- <button id="recordBtn">Start Recording</button> -->
         <p id="status"></p>
         <br>
         <button id="archive-button">📚 View Archive</button>
     </div>
-    
     <script>
         document.getElementById('archive-button').addEventListener('click', () => {
             window.location.href = 'archive.html';
         });
-    </script>
 
+        function playGif() {
+            const staticFrame = document.querySelector('.static-frame');
+            const animatedGif = document.querySelector('.animated-gif');
+
+            staticFrame.style.display = 'none';
+            animatedGif.style.display = 'inline-block';
+
+            setTimeout(() => {
+                animatedGif.style.display = 'none';
+                staticFrame.style.display = 'inline-block';
+            }, 4800);
+        }
+    </script>
     <script src="app.js"></script>
 </body>
 </html>

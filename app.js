@@ -1,4 +1,4 @@
-const recordButton = document.getElementById("recordBtn");
+const recordButton = document.getElementById("recImg");
 const statusText = document.getElementById("status");
 const archiveButton = document.getElementById('archive-button');
 
@@ -7,6 +7,7 @@ let stream;
 
 // Start recording
 recordButton.addEventListener("click", async () => {
+    console.log("clicked")
     if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
         statusText.textContent = "Your browser does not support audio recording.";
         return;
