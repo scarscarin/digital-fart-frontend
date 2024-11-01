@@ -1,5 +1,4 @@
 body {
-    font-family: Arial, sans-serif;
     text-align: center;
     padding: 20px;
 }
@@ -56,3 +55,27 @@ button {
 .static-frame, .animated-gif {
     width: auto; /* Adjust the size as needed */
 }
+
+.caprasimo-regular {
+    font-family: "Caprasimo", serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+
+.libre-baskerville-regular {
+    font-family: "Libre Baskerville", serif;
+    font-weight: 400;
+    font-style: normal;
+    }
+
+.libre-baskerville-bold {
+    font-family: "Libre Baskerville", serif;
+    font-weight: 700;
+    font-style: normal;
+    }
+
+.libre-baskerville-regular-italic {
+    font-family: "Libre Baskerville", serif;
+    font-weight: 400;
+    font-style: italic;
+    }

@@ -6,6 +6,9 @@
     <title>Digital Fart</title>
     <script src="https://cdn.webrtc-experiment.com/RecordRTC.js"></script>
     <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caprasimo&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     <style>
         /* Responsive styling for the image and video */
         .media {
@@ -30,14 +33,14 @@
     </style>
 </head>
 <body>
-    <h1>💨 What is the CO2 emission of a digital fart? 💨</h1>
+    <h1 class="caprasimo-regular">💨 What is the CO2 emission of a digital fart? 💨</h1>
     <div style="margin-top: 20px;">
         <img src="images/butt.png" id="recImg" class="static-frame media" onclick="playGif()">
         <video id="myVideo" class="animated-gif media" style="display:none;" autoplay muted playsinline>
             <source src="images/butt.mp4" type="video/mp4">
         </video>
-        <p id="status">Press on the butt to record.</p>
-        <button id="archive-button">📚 View Archive</button>
+        <p class="libre-baskerville-bold" id="status">Press on the butt to record.</p>
+        <button class="libre-baskerville-bold" id="archive-button">📚 View Archive</button>
     </div>
     
     <script>
