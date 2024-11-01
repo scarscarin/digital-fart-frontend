@@ -9,7 +9,7 @@ let stream;
 recordButton.addEventListener("click", async () => {
     console.log("clicked")
     if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
-        statusText.textContent = "Your browser does not support audio recording.";
+        statusText.textContent = "Your browser does not support fart recording.";
         return;
     }
 
@@ -24,7 +24,7 @@ recordButton.addEventListener("click", async () => {
 
         recorder.startRecording();
 
-        statusText.textContent = "Recording...";
+        statusText.textContent = "Recording your fart...";
 
         recordButton.disabled = true;
 
@@ -63,7 +63,7 @@ function stopRecording() {
             statusText.textContent = result.message || "Upload complete";
 
         } catch (error) {
-            statusText.textContent = "Failed to upload audio. Please try again.";
+            statusText.textContent = "Failed to upload fart. Please try again.";
             console.error("Error uploading audio:", error);
         }
 
@@ -77,7 +77,7 @@ function stopRecording() {
 
         recordButton.disabled = false;
 
-        statusText.textContent = "Recording stopped and uploaded.";
+        statusText.textContent = "Fart uploaded!";
     });
 }
 
