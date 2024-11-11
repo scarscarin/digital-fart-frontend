@@ -83,5 +83,5 @@ function stopRecording() {
 
 // Archive button functionality
 archiveButton.addEventListener('click', () => {
-    window.location.href = 'archive.html'; // Adjust the path if necessary
+    window.location.href = 'archive.html'; 
 });
